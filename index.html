@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="Facebook Stats — daily add & chat stats for Harpreet Singh" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<meta name="robots" content="noindex, nofollow" />
+  <title>Facebook Stats</title>
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-elevated: #121214;
+      --bg-card: #18181b;
+      --bg-card-hover: #1f1f23;
+      --border: #27272a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #1877f2;
+      --accent-bright: #5b9bf8;
+      --accent-dim: rgba(225, 48, 108, 0.18);
+      --accent-glow: rgba(225, 48, 108, 0.4);
+      --green: #22c55e;
+      --green-dim: rgba(34, 197, 94, 0.15);
+      --gold: #eab308;
+      --gold-dim: rgba(234, 179, 8, 0.15);
+      --purple: #a855f7;
+      --purple-dim: rgba(168, 85, 247, 0.15);
+      --danger: #ef4444;
+      --radius: 16px;
+      --radius-sm: 12px;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --nav-h: 64px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-tap-highlight-color: transparent; height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100%; min-height: 100dvh; line-height: 1.45;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+    button, input { font-family: inherit; font-size: inherit; color: inherit; }
+    button { cursor: pointer; border: none; background: none; }
+    .app {
+      max-width: 480px; margin: 0 auto; min-height: 100dvh;
+      display: flex; flex-direction: column; position: relative;
+      padding-bottom: calc(var(--nav-h) + var(--safe-bottom) + 8px);
+    }
+    .header {
+      padding: 20px 20px 12px; position: sticky; top: 0; z-index: 20;
+      background: linear-gradient(180deg, var(--bg) 70%, transparent);
+    }
+    .header-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(145deg, var(--accent-bright), var(--accent));
+      display: grid; place-items: center; font-weight: 800; font-size: 13px; color: #fff;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+    .brand h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; }
+    .brand .sub { font-size: 0.7rem; color: var(--text-dim); font-weight: 500; }
+    .icon-btn {
+      width: 40px; height: 40px; border-radius: 12px; background: var(--bg-card);
+      border: 1px solid var(--border); display: grid; place-items: center; color: var(--text-muted);
+    }
+    .icon-btn:active { background: var(--bg-card-hover); color: var(--text); }
+    .screen { display: none; padding: 0 20px 24px; flex: 1; }
+    .screen.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .date-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .date-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+    .date-nav { display: flex; gap: 8px; }
+    .date-nav button {
+      width: 36px; height: 36px; border-radius: 10px; background: var(--bg-card);
+      border: 1px solid var(--border); color: var(--text-muted); font-size: 1rem;
+    }
+    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .kpi {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px 14px; position: relative; overflow: hidden;
+    }
+    .kpi::after {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .kpi.adds::after { background: var(--accent-bright); }
+    .kpi.accepted::after { background: #22c55e; }
+    .kpi.texts::after { background: var(--green); }
+    .kpi.active::after { background: var(--gold); }
+    .kpi.contacts::after { background: var(--purple); }
+    .kpi.emails::after { background: #06b6d4; }
+    
+    .kpi.gp::after { background: #ef4444; }
+    .kpi.yourturn::after { background: #d4a017; }
+    .gp-count { background: #16a34a !important; }
+    .gp-del { background: transparent; border: 1px solid rgba(239,68,68,.5); color: #f87171; font-size: 0.7rem; padding: 3px 10px; border-radius: 999px; cursor: pointer; }
+    .gp-del.armed { background: #dc2626; color: #fff; border-color: #dc2626; }
+    .gp-del:hover { background: rgba(239,68,68,.12); }
+    .gp-why { font-size: 0.75rem; color: var(--text); opacity: .85; margin-top: 3px; }
+        .kpi.meetings::after { background: #f97316; }
+    .kpi .label { font-size: 0.68rem; color: var(--text-dim); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .kpi .value { font-size: 1.85rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    .kpi .hint { font-size: 0.7rem; color: var(--text-dim); margin-top: 6px; }
+    .form-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 16px;
+    }
+    .form-card h2 { font-size: 0.9rem; font-weight: 700; margin-bottom: 14px; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; }
+    .field input {
+      width: 100%; padding: 12px 14px; border-radius: var(--radius-sm);
+      background: var(--bg-elevated); border: 1px solid var(--border); outline: none;
+    }
+    .field input:focus { border-color: var(--accent-bright); }
+    .btn-primary {
+      width: 100%; padding: 14px; border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+      color: #fff; font-weight: 700; font-size: 0.95rem;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+    .btn-primary:active { opacity: 0.9; }
+    .btn-secondary {
+      width: 100%; padding: 12px; border-radius: var(--radius-sm);
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      color: var(--text-muted); font-weight: 600; margin-top: 8px;
+    }
+    .month-summary {
+      background: linear-gradient(135deg, var(--accent-dim), rgba(34, 197, 94, 0.08));
+      border: 1px solid rgba(225, 48, 108, 0.3); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 16px;
+    }
+    .month-summary h2 { font-size: 0.85rem; margin-bottom: 12px; }
+    .month-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .month-stat .n { font-size: 1.4rem; font-weight: 800; }
+    .month-stat .l { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; }
+    .rate-row { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.8rem; color: var(--text-muted); }
+    .rate-row strong { color: var(--text); }
+    .chart {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 16px;
+    }
+    .chart h2 { font-size: 0.85rem; margin-bottom: 12px; }
+    .bars { display: flex; align-items: flex-end; gap: 4px; height: 120px; }
+    .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; gap: 4px; }
+    .bar {
+      width: 100%; max-width: 14px; border-radius: 4px 4px 2px 2px;
+      background: linear-gradient(180deg, var(--accent-bright), var(--accent));
+      min-height: 2px; transition: height 0.3s ease;
+    }
+    .bar-col .d { font-size: 0.55rem; color: var(--text-dim); }
+    .history-list { display: flex; flex-direction: column; gap: 8px; }
+    .hist-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+    .hist-row .left { font-size: 0.85rem; font-weight: 600; }
+    .hist-row .right { font-size: 0.7rem; color: var(--text-dim); text-align: right; line-height: 1.5; }
+    .empty { text-align: center; color: var(--text-dim); padding: 32px 16px; font-size: 0.9rem; }
+    .toast {
+      position: fixed; left: 50%; bottom: calc(var(--nav-h) + var(--safe-bottom) + 16px);
+      transform: translateX(-50%) translateY(20px); opacity: 0;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 999px;
+      padding: 10px 18px; font-size: 0.85rem; font-weight: 600; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s; z-index: 50; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .nav {
+      position: fixed; left: 0; right: 0; bottom: 0; max-width: 480px; margin: 0 auto;
+      height: calc(var(--nav-h) + var(--safe-bottom)); padding-bottom: var(--safe-bottom);
+      background: rgba(10,10,11,0.92); backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border); display: flex; z-index: 30;
+    }
+    .nav button {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 4px; color: var(--text-dim); font-size: 0.65rem; font-weight: 600;
+    }
+    .nav button.active { color: var(--accent-bright); }
+    .nav svg { width: 22px; height: 22px; }
+    .settings-block { margin-bottom: 16px; }
+    .settings-block h2 { font-size: 0.85rem; margin-bottom: 8px; }
+    .settings-block p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
+    #fileImport { display: none; }
+    .track-seg { margin: 14px 0 0; }
+    body.pros .brand-mark { background: #d4a017; }
+    body.pros .seg-btn.active, body.pros .cx-count { background: #d4a017; }
+
+    .pro-status { font-size: 0.7rem; font-weight: 800; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+    .st-pending { background: #3a3a3a; color: #bbb; }
+    .st-messaged { background: #d4a017; color: #111; }
+    .st-replied { background: #1f9d55; color: #fff; }
+    .pro-link { color: inherit; text-decoration: none; }
+    .cx-count { background: var(--accent); color: #fff; font-weight: 800; font-size: 0.8rem; padding: 3px 10px; border-radius: 999px; }
+    .cx-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 0; border-top: 1px solid var(--border); }
+    .cx-row:first-child { border-top: none; }
+    .cx-name { font-weight: 700; font-size: 0.95rem; }
+    .cx-sub { font-size: 0.75rem; color: var(--text-dim); margin-top: 2px; }
+    .cx-phone { font-weight: 700; font-size: 0.9rem; color: var(--accent); text-decoration: none; white-space: nowrap; }
+    .cx-empty { font-size: 0.85rem; color: var(--text-muted); padding: 6px 0; }
+
+    .seg { display: flex; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 4px; margin-bottom: 14px; }
+    .seg-btn { flex: 1; padding: 10px; border-radius: 9px; font-weight: 700; font-size: 0.85rem; color: var(--text-dim); }
+    .seg-btn.active { background: var(--accent); color: #fff; }
+    .pnav { width: 32px; height: 32px; border-radius: 9px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); }
+    .bar-col .d { white-space: nowrap; }
+
+    .goal-bar { height: 8px; background: var(--border); border-radius: 9px; overflow: hidden; margin-top: 10px; }
+    .goal-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-bright)); transition: width .3s ease; }
+    .goal-bar i.done { background: var(--green); }
+    .hist-row { flex-wrap: wrap; cursor: pointer; }
+    .hist-det { width: 100%; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--text-muted); line-height: 1.7; }
+    .hist-det a { color: var(--accent-bright); text-decoration: none; font-weight: 600; }
+    .hist-row.hit { border-color: rgba(34,197,94,.5); }
+    .st-accepted { background: #1f9d55; color: #fff; }
+    .st-chat { background: #6d28d9; color: #fff; }
+    .bar-col em { font-style: normal; font-size: 0.55rem; color: var(--text-dim); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-top">
+        <div class="brand">
+          <div class="brand-mark">IG</div>
+          <div>
+            <h1>Facebook Stats</h1>
+            <div class="sub" id="brandSub">Harpreet · add &amp; chat KPIs</div>
+          </div>
+        </div>
+        <button class="icon-btn" id="btnSettings" title="Settings" aria-label="Settings">⚙</button>
+      </div>
+      <div class="seg track-seg" id="trackSeg">
+        <button class="seg-btn active" data-track="regular">Regular</button>
+        <button class="seg-btn" data-track="pros">Professionals</button>
+      </div>
+    </header>
+
+    <section class="screen active" id="screen-today">
+      <div class="date-row">
+        <div class="date-label" id="todayLabel">Today</div>
+        <div class="date-nav">
+          <button id="prevDay" aria-label="Previous day">‹</button>
+          <button id="nextDay" aria-label="Next day">›</button>
+        </div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi adds"><div class="label">Adds done</div><div class="value" id="kpiAdds">0</div><div class="hint" id="kpiGoalHint">Daily goal</div></div>
+        <div class="kpi accepted"><div class="label">Requests accepted</div><div class="value" id="kpiAccepted">0</div><div class="hint" id="kpiAcceptRate">Accepted</div></div>
+        <div class="kpi texts"><div class="label">Texts sent</div><div class="value" id="kpiTexts">0</div><div class="hint">Outbound messages</div></div>
+        <div class="kpi active"><div class="label">Active chats</div><div class="value" id="kpiActive">0</div><div class="hint">Reciprocal replies</div></div>
+        <div class="kpi" style="grid-column:1 / -1;"><div class="label" id="goalLabel">Daily goal</div><div class="value" id="goalValue">0 / 0</div><div class="goal-bar"><i id="goalFill"></i></div></div>
+      </div>
+      <div class="form-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <h2 style="margin:0;">Good prospects</h2>
+          <span class="cx-count gp-count" id="gpCount">0</span>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-dim);margin:4px 0 12px;">People who look promising for you to take over. Never cleared.</p>
+        <div id="gpNote" style="display:none;font-size:0.75rem;color:#fbbf24;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);border-radius:10px;padding:8px 10px;margin-bottom:10px;"></div>
+        <div id="gpList"></div>
+      </div>
+      <div class="form-card" id="proCard">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <h2 style="margin:0;" id="proTitle">People added</h2>
+          <span class="cx-count" id="proCount">0</span>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-dim);margin:4px 0 12px;">Everyone added in this track. Status updates as they accept, get texted and start chatting. Never cleared.</p>
+        <div id="proList"></div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-trends">
+      <div class="seg" id="filterSegT">
+        <button class="seg-btn" data-f="regular">Regular</button>
+        <button class="seg-btn" data-f="pros">Professionals</button>
+        <button class="seg-btn active" data-f="combined">Combined</button>
+      </div>
+      <div class="seg" id="trendSeg">
+        <button class="seg-btn active" data-mode="week">Weekly</button>
+        <button class="seg-btn" data-mode="month">Monthly</button>
+        <button class="seg-btn" data-mode="year">Yearly</button>
+      </div>
+      <div class="month-summary">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <button class="pnav" id="prevPeriod">‹</button>
+          <h2 id="periodTitle" style="margin:0;">This week</h2>
+          <button class="pnav" id="nextPeriod">›</button>
+        </div>
+        <div class="month-grid">
+          <div class="month-stat"><div class="n" id="pAdds">0</div><div class="l">Adds</div></div>
+          <div class="month-stat"><div class="n" id="pAccepted">0</div><div class="l">Accepted</div></div>
+          <div class="month-stat"><div class="n" id="pTexts">0</div><div class="l">Texts</div></div>
+          <div class="month-stat"><div class="n" id="pActive">0</div><div class="l">Active</div></div>
+        </div>
+        <div class="rate-row">
+          Accept rate: <strong id="pAcceptRate">—</strong>
+          · Reply rate: <strong id="pReplyRate">—</strong>
+          · Days logged: <strong id="pDays">0</strong>
+        </div>
+        <div class="rate-row" style="border-top:none;padding-top:4px;margin-top:4px;">
+          Days hit goal: <strong id="pHit">0</strong> · Streak: <strong id="pStreak">0 d</strong> (best <strong id="pBest">0 d</strong>)
+        </div>
+        <div class="rate-row" id="pProjection" style="border-top:none;padding-top:4px;margin-top:4px;"></div>
+      </div>
+      <div class="chart"><h2 id="chartTitle1">Adds</h2><div class="bars" id="chartA"></div></div>
+      <div class="chart"><h2 id="chartTitle2">Requests accepted</h2><div class="bars" id="chartB"></div></div>
+      <div class="chart"><h2 id="chartTitle3">Texts sent</h2><div class="bars" id="chartC"></div></div>
+      <div class="chart"><h2 id="chartTitle4">Active chats</h2><div class="bars" id="chartD"></div></div>
+      <div class="form-card"><h2>All time</h2><p id="allTime" style="font-size:0.8rem;color:var(--text-muted);"></p></div>
+    </section>
+
+    <section class="screen" id="screen-history">
+      <h2 style="font-size:0.9rem;margin-bottom:12px;">History</h2>
+      <div class="seg" id="filterSegH">
+        <button class="seg-btn" data-f="regular">Regular</button>
+        <button class="seg-btn" data-f="pros">Professionals</button>
+        <button class="seg-btn active" data-f="combined">Combined</button>
+      </div>
+      <div class="history-list" id="historyList"></div>
+    </section>
+
+    <section class="screen" id="screen-settings">
+      <div class="settings-block">
+        <h2>How stats update</h2>
+        <p>View-only for you. Facebook Manager writes daily counts after add &amp; messaging batches into <code>data.json</code> beside this page. Page refreshes itself every minute.</p>
+      </div>
+      <div class="settings-block">
+        <h2>Backup</h2>
+        <p>Download a copy of the current data.</p>
+        <button class="btn-primary" id="btnExport">Export JSON</button>
+      </div>
+      <div class="settings-block">
+        <h2>Targets</h2>
+        <p id="targets"></p>
+      </div>
+      <div class="settings-block">
+        <h2>Good prospects</h2>
+        <p>Good prospects are never removed automatically. Only Harpreet may remove entries.</p>
+      </div>
+    </section>
+
+    <nav class="nav">
+      <button class="active" data-screen="today">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 16V9m4 7V7m4 9v-5"/></svg>
+        Today
+      </button>
+      <button data-screen="trends">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        Trends
+      </button>
+      <button data-screen="history">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        History
+      </button>
+    </nav>
+    <div class="toast" id="toast"></div>
+  </div>
+<script>
+/* Auto-refresh: publish.sh stamps BUILD and version.json on every publish. */
+const BUILD="20261009224507";
+(function () {
+  var cur = BUILD, busy = false;
+  async function check() {
+    if (busy) return; busy = true;
+    try {
+      var r = await fetch("version.json?ts=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) return;
+      var j = await r.json(), nv = j && j.v ? String(j.v) : "";
+      if (!nv || nv === cur) return;
+      var key = "reloaded_" + nv;
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, "1");
+      location.replace(location.pathname + "?v=" + encodeURIComponent(nv));
+    } catch (e) {} finally { busy = false; }
+  }
+  check();
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) check(); });
+  window.addEventListener("focus", check);
+  window.addEventListener("pageshow", check);
+  setInterval(check, 60000);
+})();
+</script>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const TR = ["regular", "professionals"];
+  const K = ["follows", "accepted", "texts", "chats", "flagged"];
+  const Z = { follows: 0, accepted: 0, texts: 0, chats: 0, flagged: 0 };
+  const tn = (t) => (t === "pros" ? "professionals" : t);
+  let D = { goals: { regular: 8, professionals: 2 }, tracks: { regular: { people: [], prospects: [], days: {} }, professionals: { people: [], prospects: [], days: {} } } };
+  let track = "regular", filt = "combined", trendMode = "week", periodOffset = 0, openDay = null;
+  const todayISO = () => new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto" }).format(new Date());
+  let viewDate = todayISO();
+  const toD = (s) => new Date(s + "T12:00:00Z"), fmtD = (d) => d.toISOString().slice(0, 10);
+  const addD = (s, n) => { const d = toD(s); d.setUTCDate(d.getUTCDate() + n); return fmtD(d); };
+  const escapeHTML = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  const nice = (iso, y) => iso ? toD(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: y === false ? undefined : "numeric", timeZone: "UTC" }) : "";
+  const T = (t) => D.tracks[tn(t)];
+  const row = (t, day) => Object.assign({}, Z, (T(t).days || {})[day] || {});
+  const tracksOf = (f) => (f === "combined" ? TR : [tn(f)]);
+  const goalOf = (f) => tracksOf(f).reduce((s, t) => s + (D.goals[t] || 0), 0);
+  const rowF = (f, day) => tracksOf(f).reduce((r, t) => { const x = row(t, day); K.forEach((k) => (r[k] += x[k])); return r; }, Object.assign({}, Z));
+  const allDays = (f) => [...new Set(tracksOf(f).flatMap((t) => Object.keys(T(t).days || {})))].sort();
+  const pct = (a, b) => (b ? Math.round((a / b) * 100) + "%" : "—");
+  function toast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 1800); }
+  function formatLabel(iso) {
+    const d = toD(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric", year: iso === todayISO() ? undefined : "numeric", timeZone: "UTC" });
+    return iso === todayISO() ? "Today · " + d : d;
+  }
+  const igUrl = (h) => "https://facebook.com/" + encodeURIComponent(h);
+  const link = (h, label) => '<a class="pro-link" href="' + igUrl(h) + '" target="_blank" rel="noopener">' + escapeHTML(label || "@" + h) + ' ↗</a>';
+
+  // ---- Good prospects (never auto-deleted; local hide is a manual Harpreet action) ----
+  const GP_HIDE_KEY = "facebook-stats-prospects-deleted-v1";
+  let mem = {};
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return mem[k] || null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) { mem[k] = v; window.NOSTORE = true; } } };
+  const gpKey = (x) => String(x.handle || x.name || "").toLowerCase().trim();
+  const gpHidden = () => { try { return JSON.parse(store.get(GP_HIDE_KEY) || "[]"); } catch (e) { return []; } };
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest && e.target.closest(".gp-del");
+    if (!b) return;
+    if (b.dataset.armed !== "1") {
+      b.dataset.armed = "1"; b.textContent = "Tap again to delete"; b.classList.add("armed");
+      setTimeout(() => { if (b.isConnected) { b.dataset.armed = ""; b.textContent = "Delete"; b.classList.remove("armed"); } }, 4000);
+      return;
+    }
+    const list = gpHidden(); if (!list.includes(b.dataset.key)) list.push(b.dataset.key);
+    store.set(GP_HIDE_KEY, JSON.stringify(list));
+    renderProspects();
+    if (window.NOSTORE) { const n = $("gpNote"); if (n) { n.style.display = "block"; n.textContent = "This viewer can\u2019t save deletes, so " + b.dataset.name + " will come back next time."; } }
+  });
+  function renderProspects() {
+    const el = $("gpList"), hidden = gpHidden();
+    const list = (T(track).prospects || []).filter((x) => !hidden.includes(gpKey(x))).slice().sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+    $("gpCount").textContent = list.length;
+    if (!list.length) { el.innerHTML = '<div class="cx-empty">No good prospects yet.</div>'; return; }
+    el.innerHTML = list.map((x) => {
+      const sub = [x.name, x.date ? "Flagged " + nice(x.date) : ""].filter(Boolean).map(escapeHTML).join(" · ");
+      return '<div class="cx-row" style="align-items:flex-start;"><div><div class="cx-name">' + link(x.handle) + '</div><div class="cx-sub">' + sub + '</div>' + (x.note ? '<div class="gp-why">' + escapeHTML(x.note) + '</div>' : '') + '</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;"><span class="pro-status st-replied">Hot</span><button class="gp-del" data-key="' + escapeHTML(gpKey(x)) + '" data-name="' + escapeHTML(x.handle) + '">Delete</button></div></div>';
+    }).join("");
+  }
+  function renderPeople() {
+    const people = (T(track).people || []).slice().sort((a, b) => String(b.followed || "").localeCompare(String(a.followed || "")));
+    $("proTitle").textContent = track === "pros" ? "Professionals added" : "People added";
+    $("proCount").textContent = people.length;
+    const el = $("proList");
+    if (!people.length) { el.innerHTML = '<div class="cx-empty">No one added yet. Each person shows up here as soon as I add them.</div>'; return; }
+    el.innerHTML = people.map((x) => {
+      const chat = x.chat, acc = x.accepted, tx = (x.texts || []).length;
+      const label = chat ? "Active chat" : tx ? "Texted" : acc ? "Accepted" : "Added";
+      const cls = chat ? "st-chat" : tx ? "st-messaged" : acc ? "st-accepted" : "st-pending";
+      const sub = [x.name, "Added " + nice(x.followed), acc ? "Accepted " + nice(acc, false) : "", tx ? tx + " text" + (tx > 1 ? "s" : "") : ""].filter(Boolean).map(escapeHTML).join(" · ");
+      return '<div class="cx-row"><div><div class="cx-name">' + link(x.handle) + '</div><div class="cx-sub">' + sub + '</div></div><span class="pro-status ' + cls + '">' + label + '</span></div>';
+    }).join("");
+  }
+  function renderToday() {
+    const d = row(track, viewDate), goal = D.goals[tn(track)] || 0, tr = T(track);
+    $("todayLabel").textContent = formatLabel(viewDate);
+    $("kpiAdds").textContent = d.follows;
+    $("kpiGoalHint").textContent = "Daily goal " + goal;
+    $("kpiAccepted").textContent = d.accepted;
+    $("kpiAcceptRate").textContent = d.follows > 0 ? Math.round((d.accepted / d.follows) * 100) + "% of today's adds" : "Accepted";
+    $("kpiTexts").textContent = d.texts;
+    $("kpiActive").textContent = d.chats;
+    $("goalLabel").textContent = "Daily goal (adds)" + (d.follows >= goal && goal ? " ✅" : "");
+    $("goalValue").textContent = d.follows + " / " + goal;
+    const f = $("goalFill"); f.style.width = Math.min(100, goal ? (d.follows / goal) * 100 : 0) + "%"; f.className = d.follows >= goal && goal ? "done" : "";
+    document.body.classList.toggle("pros", track === "pros");
+    $("brandSub").textContent = track === "pros" ? "Professionals track · goal " + goal + " adds/day" : "Harpreet · add & chat KPIs";
+  }
+
+  // ---- Trends ----
+  function startOfWeek(s) { const dow = (toD(s).getUTCDay() + 6) % 7; return addD(s, -dow); }
+  function periodRange(mode, offset) {
+    const td = todayISO();
+    if (mode === "week") { const s = addD(startOfWeek(td), offset * 7); return { from: s, to: addD(s, 6) }; }
+    const [y, m] = td.split("-").map(Number);
+    if (mode === "month") { const a = new Date(Date.UTC(y, m - 1 + offset, 1)); return { from: fmtD(a), to: fmtD(new Date(Date.UTC(a.getUTCFullYear(), a.getUTCMonth() + 1, 0))) }; }
+    return { from: (y + offset) + "-01-01", to: (y + offset) + "-12-31" };
+  }
+  function periodLabel(mode, r, offset) {
+    if (mode === "week") { const base = nice(r.from, false) + " – " + nice(r.to, false); return offset === 0 ? "This week · " + base : base; }
+    if (mode === "month") return toD(r.from).toLocaleDateString(undefined, { month: "long", year: "numeric", timeZone: "UTC" });
+    return r.from.slice(0, 4);
+  }
+  function sumRange(from, to) {
+    const out = Object.assign({}, Z, { days: 0, hit: 0 }), g = goalOf(filt);
+    allDays(filt).forEach((iso) => {
+      if (iso < from || iso > to) return;
+      const v = rowF(filt, iso); K.forEach((k) => (out[k] += v[k])); out.days++; if (v.follows >= g && g) out.hit++;
+    });
+    return out;
+  }
+  function streaks() {
+    const g = goalOf(filt), td = todayISO(), days = allDays(filt); let cur = 0, best = 0, run = 0;
+    if (days.length && g) { let d = days[0]; while (d <= td) { if (rowF(filt, d).follows >= g) { run++; best = Math.max(best, run); } else run = 0; d = addD(d, 1); } }
+    let d = td; if (g && rowF(filt, d).follows < g) d = addD(d, -1);
+    while (g && rowF(filt, d).follows >= g && d >= "2000") { cur++; d = addD(d, -1); }
+    return { cur, best };
+  }
+  function drawBars(id, points) {
+    const el = $(id); el.innerHTML = "";
+    const max = Math.max(1, ...points.map((p) => p.v));
+    points.forEach((p) => {
+      const col = document.createElement("div"); col.className = "bar-col";
+      const em = document.createElement("em"); em.textContent = p.v || "";
+      const bar = document.createElement("div"); bar.className = "bar"; bar.style.height = Math.max(2, Math.round((p.v / max) * 80)) + "%"; bar.title = p.label + ": " + p.v;
+      const lab = document.createElement("div"); lab.className = "d"; lab.textContent = p.short;
+      col.appendChild(em); col.appendChild(bar); col.appendChild(lab); el.appendChild(col);
+    });
+  }
+  function seriesFor(field) {
+    const n = trendMode === "year" ? 3 : 12, pts = [];
+    for (let i = n - 1; i >= 0; i--) {
+      const off = periodOffset - i, r = periodRange(trendMode, off), s = sumRange(r.from, r.to);
+      const short = trendMode === "week" ? (+r.from.slice(5, 7)) + "/" + (+r.from.slice(8)) : trendMode === "month" ? toD(r.from).toLocaleDateString(undefined, { month: "short", timeZone: "UTC" }) : r.from.slice(0, 4);
+      pts.push({ v: s[field], label: periodLabel(trendMode, r, off), short });
+    }
+    return pts;
+  }
+  function renderTrends() {
+    const r = periodRange(trendMode, periodOffset), s = sumRange(r.from, r.to), g = goalOf(filt), st = streaks();
+    $("periodTitle").textContent = periodLabel(trendMode, r, periodOffset);
+    $("pAdds").textContent = s.follows; $("pAccepted").textContent = s.accepted; $("pTexts").textContent = s.texts; $("pActive").textContent = s.chats; $("pDays").textContent = s.days;
+    $("pAcceptRate").textContent = pct(s.accepted, s.follows); $("pReplyRate").textContent = pct(s.chats, s.texts);
+    $("pHit").textContent = s.hit; $("pStreak").textContent = st.cur + " d"; $("pBest").textContent = st.best + " d";
+    const periodDays = Math.round((toD(r.to) - toD(r.from)) / 86400000) + 1;
+    $("pProjection").textContent = "Goal " + g + " adds/day × " + periodDays + " days = " + (g * periodDays) + " · Actual: " + s.follows;
+    const unit = trendMode === "week" ? "last 12 weeks" : trendMode === "month" ? "last 12 months" : "last 3 years";
+    $("chartTitle1").textContent = "Adds · " + unit; $("chartTitle2").textContent = "Requests accepted · " + unit; $("chartTitle3").textContent = "Texts sent · " + unit; $("chartTitle4").textContent = "Active chats · " + unit;
+    drawBars("chartA", seriesFor("follows")); drawBars("chartB", seriesFor("accepted")); drawBars("chartC", seriesFor("texts")); drawBars("chartD", seriesFor("chats"));
+    const a = sumRange("0000-01-01", "9999-12-31");
+    $("allTime").textContent = a.follows + " adds · " + a.accepted + " accepted (" + pct(a.accepted, a.follows) + ") · " + a.texts + " texts · " + a.chats + " active chats · " + a.flagged + " good prospects";
+  }
+
+  // ---- History ----
+  function detail(day) {
+    const L = (arr) => arr.map((p) => '<a href="' + igUrl(p.handle) + '" target="_blank" rel="noopener">@' + escapeHTML(p.handle) + '</a>').join(", ") || "–";
+    return tracksOf(filt).map((t) => {
+      const P = T(t).people || [], pr = (T(t).prospects || []).filter((x) => x.date === day);
+      return '<div><b style="color:var(--text)">' + (t === "regular" ? "Regular" : "Professionals") + '</b></div>' +
+        '<div>Added: ' + L(P.filter((p) => p.followed === day)) + '</div>' +
+        '<div>Accepted: ' + L(P.filter((p) => p.accepted === day)) + '</div>' +
+        '<div>Texted: ' + L(P.filter((p) => (p.texts || []).includes(day))) + '</div>' +
+        '<div>Active chats: ' + L(P.filter((p) => p.chatDate === day)) + '</div>' +
+        '<div>Prospects: ' + (pr.map((x) => '<a href="' + igUrl(x.handle) + '" target="_blank" rel="noopener">@' + escapeHTML(x.handle) + '</a> – ' + escapeHTML(x.note || "")).join("; ") || "–") + '</div>';
+    }).join("");
+  }
+  function renderHistory() {
+    const list = $("historyList"), keys = allDays(filt).reverse(), g = goalOf(filt);
+    if (!keys.length) { list.innerHTML = '<div class="empty">No days logged yet.</div>'; return; }
+    list.innerHTML = keys.map((iso) => {
+      const d = rowF(filt, iso), hit = g && d.follows >= g;
+      const split = filt === "combined" ? " (" + row("regular", iso).follows + "+" + row("professionals", iso).follows + ")" : "";
+      return '<div class="hist-row' + (hit ? " hit" : "") + '" data-d="' + iso + '"><div class="left">' + formatLabel(iso) + (hit ? " ✅" : "") + '</div><div class="right">+' + d.follows + ' adds' + split + ' · ' + d.accepted + ' accepted · ' + d.texts + ' texts<br>' + d.chats + ' active · ' + d.flagged + ' prospects</div>' +
+        (openDay === iso ? '<div class="hist-det">' + detail(iso) + '</div>' : '') + '</div>';
+    }).join("");
+    list.querySelectorAll(".hist-row").forEach((r) => r.addEventListener("click", (e) => { if (e.target.closest("a")) return; openDay = openDay === r.dataset.d ? null : r.dataset.d; renderHistory(); }));
+  }
+
+  function renderAll() {
+    renderToday(); renderPeople(); renderProspects(); renderTrends(); renderHistory();
+    const tg = $("targets"); if (tg) tg.textContent = "Daily add goals — Regular: " + D.goals.regular + " · Professionals: " + D.goals.professionals + " (set in data.json).";
+    document.querySelectorAll("#filterSegT .seg-btn, #filterSegH .seg-btn").forEach((b) => b.classList.toggle("active", b.dataset.f === filt));
+  }
+  function showScreen(name) {
+    document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
+    document.querySelectorAll(".nav button").forEach((b) => b.classList.remove("active"));
+    $("screen-" + name).classList.add("active");
+    const nb = document.querySelector('.nav button[data-screen="' + name + '"]'); if (nb) nb.classList.add("active");
+    renderAll();
+  }
+  $("prevDay").addEventListener("click", () => { viewDate = addD(viewDate, -1); renderToday(); });
+  $("nextDay").addEventListener("click", () => { if (addD(viewDate, 1) > todayISO()) return; viewDate = addD(viewDate, 1); renderToday(); });
+  document.querySelectorAll("#trackSeg .seg-btn").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("#trackSeg .seg-btn").forEach((x) => x.classList.remove("active")); b.classList.add("active");
+    track = b.dataset.track; renderToday(); renderPeople(); renderProspects();
+  }));
+  document.querySelectorAll("#filterSegT .seg-btn, #filterSegH .seg-btn").forEach((b) => b.addEventListener("click", () => { filt = b.dataset.f; openDay = null; renderAll(); }));
+  document.querySelectorAll("#trendSeg .seg-btn").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("#trendSeg .seg-btn").forEach((x) => x.classList.remove("active")); b.classList.add("active");
+    trendMode = b.dataset.mode; periodOffset = 0; renderTrends();
+  }));
+  $("prevPeriod").addEventListener("click", () => { periodOffset -= 1; renderTrends(); });
+  $("nextPeriod").addEventListener("click", () => { if (periodOffset < 0) { periodOffset += 1; renderTrends(); } });
+  document.querySelectorAll(".nav button").forEach((b) => b.addEventListener("click", () => showScreen(b.dataset.screen)));
+  $("btnSettings").addEventListener("click", () => showScreen("settings"));
+  $("btnExport").addEventListener("click", () => {
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(D, null, 2)], { type: "application/json" }));
+    a.download = "facebook-stats-" + todayISO() + ".json"; a.click(); toast("Exported");
+  });
+  async function load() {
+    try {
+      const res = await fetch("data.json?ts=" + Date.now(), { cache: "no-store" });
+      if (res.ok) { const j = await res.json(); if (j && j.tracks) D = j; }
+    } catch (e) {}
+    renderAll();
+  }
+  renderAll(); load(); setInterval(load, 60000);
+})();
+</script>
+<div id="appVersion" style="text-align:center;font-size:11px;color:#64748b;padding:14px 0 28px;">App version: <span id="appVer">Oct 9, 10:45 PM (build 20261009224507)</span> (auto-refresh)</div>
+</body>
+</html>
