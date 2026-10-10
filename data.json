@@ -1,1 +1,37 @@
-{"updated":"","goals":{"regular":8,"professionals":2},"tracks":{"regular":{"people":[],"prospects":[],"days":{}},"professionals":{"people":[],"prospects":[],"days":{}}}}
+{
+  "updated": "2026-10-10T12:59:58-04:00",
+  "goals": {
+    "regular": 8,
+    "professionals": 2
+  },
+  "tracks": {
+    "regular": {
+      "people": [],
+      "prospects": [],
+      "days": {}
+    },
+    "professionals": {
+      "people": [
+        {
+          "handle": "damansinghrealtorr",
+          "name": "Daman Singh",
+          "followed": "2026-10-10",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        }
+      ],
+      "prospects": [],
+      "days": {
+        "2026-10-10": {
+          "follows": 1,
+          "accepted": 0,
+          "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        }
+      }
+    }
+  }
+}
