@@ -1,20 +1,15 @@
 {
-  "updated": "2026-10-10T12:59:58-04:00",
+  "updated": "2026-10-10T13:03:47-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
   },
   "tracks": {
     "regular": {
-      "people": [],
-      "prospects": [],
-      "days": {}
-    },
-    "professionals": {
       "people": [
         {
-          "handle": "damansinghrealtorr",
-          "name": "Daman Singh",
+          "handle": "lovepreet.singh.554667",
+          "name": "Lovepreet Singh",
           "followed": "2026-10-10",
           "accepted": null,
           "texts": [],
@@ -26,6 +21,38 @@
       "days": {
         "2026-10-10": {
           "follows": 1,
+          "accepted": 0,
+          "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        }
+      }
+    },
+    "professionals": {
+      "people": [
+        {
+          "handle": "damansinghrealtorr",
+          "name": "Daman Singh",
+          "followed": "2026-10-10",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "gary.sidhu.56",
+          "name": "Gary Sidhu",
+          "followed": "2026-10-10",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        }
+      ],
+      "prospects": [],
+      "days": {
+        "2026-10-10": {
+          "follows": 2,
           "accepted": 0,
           "texts": 0,
           "chats": 0,
