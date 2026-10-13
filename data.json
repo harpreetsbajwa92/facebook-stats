@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T08:47:04-04:00",
+  "updated": "2026-10-13T12:27:57-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -15,6 +15,42 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "tegbeer.dhillon",
+          "name": "Tegbeer Dhillon",
+          "followed": "2026-10-13",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "sukhi.baidwan.37",
+          "name": "Sukhi Baidwan",
+          "followed": "2026-10-13",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "varinder.grover.7",
+          "name": "Varinder Grover",
+          "followed": "2026-10-13",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "pilotharry",
+          "name": "Harpreet Walia",
+          "followed": "2026-10-13",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -27,7 +63,7 @@
           "flagged": 0
         },
         "2026-10-13": {
-          "follows": 0,
+          "follows": 4,
           "accepted": 1,
           "texts": 0,
           "chats": 0,
@@ -54,11 +90,36 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "sukhwinder.canth",
+          "name": "Sukhwinder Canth",
+          "followed": "2026-10-13",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "parminder.kharaud",
+          "name": "Peter Kharaud",
+          "followed": "2026-10-13",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
       "days": {
         "2026-10-10": {
+          "follows": 2,
+          "accepted": 0,
+          "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-13": {
           "follows": 2,
           "accepted": 0,
           "texts": 0,
