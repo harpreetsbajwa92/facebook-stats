@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T12:27:57-04:00",
+  "updated": "2026-10-14T12:57:41-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -51,6 +51,42 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "narinder.walia.750",
+          "name": "Narinder Walia",
+          "followed": "2026-10-14",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "amarjit.matharu.7",
+          "name": "Amarjit Matharu",
+          "followed": "2026-10-14",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "jotvinder.sodhi",
+          "name": "Jotvinder Sodhi",
+          "followed": "2026-10-14",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "uday.kalluri.5",
+          "name": "Uday Kalluri",
+          "followed": "2026-10-14",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -65,6 +101,13 @@
         "2026-10-13": {
           "follows": 4,
           "accepted": 1,
+          "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-14": {
+          "follows": 4,
+          "accepted": 0,
           "texts": 0,
           "chats": 0,
           "flagged": 0
@@ -108,6 +151,24 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "shamsher.manku",
+          "name": "Shamsher Manku",
+          "followed": "2026-10-14",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "drjindal77",
+          "name": "Ashwani Jindal",
+          "followed": "2026-10-14",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -120,6 +181,13 @@
           "flagged": 0
         },
         "2026-10-13": {
+          "follows": 2,
+          "accepted": 0,
+          "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-14": {
           "follows": 2,
           "accepted": 0,
           "texts": 0,
