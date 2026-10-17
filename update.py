@@ -71,6 +71,8 @@ elif c == "flag":
     if not any(x["handle"] == p["handle"] for x in pr): bump(t, "flagged")
     pr[:] = [x for x in pr if x["handle"] != p["handle"]]
     pr.append({"handle": p["handle"], "name": name, "date": day, "note": a[2]})
+    for ot, otr in d["tracks"].items():
+        if ot != t: otr["prospects"][:] = [x for x in otr["prospects"] if x["handle"] != p["handle"]]
 elif c == "set-day":
     t = a[1]
     if t not in d["tracks"]: sys.exit("track must be regular or professionals")
