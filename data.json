@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T09:59:32-04:00",
+  "updated": "2026-10-17T10:14:43-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -304,6 +304,51 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "mr.attitudic",
+          "name": "Anchit Arora",
+          "followed": "2026-10-17",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "manpreet.singh.9083477",
+          "name": "Manpreet Singh",
+          "followed": "2026-10-17",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "iqbalsingh.padda.817617",
+          "name": "Iqbalsingh Padda",
+          "followed": "2026-10-17",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "pali.kurali",
+          "name": "Pali Kurali",
+          "followed": "2026-10-17",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "sukhmeet.singh.610465",
+          "name": "Sukhmeet Singh",
+          "followed": "2026-10-17",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -344,7 +389,7 @@
           "flagged": 0
         },
         "2026-10-17": {
-          "follows": 3,
+          "follows": 8,
           "accepted": 0,
           "texts": 1,
           "chats": 0,
