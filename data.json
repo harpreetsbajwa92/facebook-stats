@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T10:51:32-04:00",
+  "updated": "2026-10-18T11:56:34-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -380,6 +380,33 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "gorav.duggal.2025",
+          "name": "Gorav Duggal",
+          "followed": "2026-10-18",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "simmer.sandhu.7",
+          "name": "Simmer Sandhu",
+          "followed": "2026-10-18",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "gaurav.sahdev.9",
+          "name": "Gaurav Sahdev",
+          "followed": "2026-10-18",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -427,7 +454,7 @@
           "flagged": 0
         },
         "2026-10-18": {
-          "follows": 3,
+          "follows": 6,
           "accepted": 1,
           "texts": 0,
           "chats": 0,
