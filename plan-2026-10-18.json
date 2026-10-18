@@ -10,11 +10,11 @@
   },
   {
    "t": "12:18",
-   "done": false
+   "done": true
   },
   {
    "t": "17:18",
-   "done": false
+   "done": true
   },
   {
    "t": "20:55",
@@ -27,5 +27,5 @@
    "done": true
   }
  ],
- "last_extra": "11:39"
+ "last_extra": "13:06"
 }
