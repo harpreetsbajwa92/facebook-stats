@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T18:44:18-04:00",
+  "updated": "2026-10-19T10:47:47-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -306,7 +306,9 @@
           "name": "Kulwant Sandhu",
           "followed": "2026-10-17",
           "accepted": "2026-10-18",
-          "texts": [],
+          "texts": [
+            "2026-10-19"
+          ],
           "chat": false,
           "chatDate": null
         },
@@ -408,6 +410,78 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "shubhneet.gulati",
+          "name": "Shubhneet Gulati",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "karminderbhatia",
+          "name": "Karminder Singh Bhatia",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "sidbhatia88",
+          "name": "Siddharth Bhatia",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "gaurav.khanna.9216",
+          "name": "Gaurav Khanna",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "varun.bhatia.359",
+          "name": "Varun Bhatia",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "sandeep.s.kanda",
+          "name": "Sandeep Singh Kanda",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "manvir.hundal.7",
+          "name": "Manvir Hundal",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "jdhalla",
+          "name": "Jag Dhalla",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [
@@ -467,6 +541,13 @@
           "texts": 1,
           "chats": 0,
           "flagged": 1
+        },
+        "2026-10-19": {
+          "follows": 8,
+          "accepted": 0,
+          "texts": 1,
+          "chats": 0,
+          "flagged": 0
         }
       }
     },
@@ -539,7 +620,7 @@
           "handle": "hargy.randhawa",
           "name": "Hargy Randhawa",
           "followed": "2026-10-15",
-          "accepted": null,
+          "accepted": "2026-10-19",
           "texts": [],
           "chat": false,
           "chatDate": null
@@ -597,6 +678,24 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "100011074300406",
+          "name": "Harsh Garcha",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "parsh.dhaliwal",
+          "name": "Parsh Dhaliwal",
+          "followed": "2026-10-19",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -646,6 +745,13 @@
         "2026-10-18": {
           "follows": 2,
           "accepted": 0,
+          "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-19": {
+          "follows": 2,
+          "accepted": 1,
           "texts": 0,
           "chats": 0,
           "flagged": 0
