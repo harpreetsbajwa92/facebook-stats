@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T12:40:10-04:00",
+  "updated": "2026-10-20T09:37:37-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -478,6 +478,78 @@
           "handle": "jdhalla",
           "name": "Jag Dhalla",
           "followed": "2026-10-19",
+          "accepted": "2026-10-20",
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "gpdda",
+          "name": "Abhishek Sharma",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "lovely.punny",
+          "name": "Lovepreet Singh Punny",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "sourab.singh2",
+          "name": "Sourab Singh",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "taranpreet.singh.161",
+          "name": "Taranpreet Singh",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "vybhav.sharma",
+          "name": "Veb Sharma",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "navdeep.sandhu.1238",
+          "name": "Navdeep Sandhu",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "manjinder.singh.951125",
+          "name": "Manjinder Singh",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "anish.sharma.777",
+          "name": "Anish Sharma",
+          "followed": "2026-10-20",
           "accepted": null,
           "texts": [],
           "chat": false,
@@ -546,6 +618,13 @@
           "follows": 8,
           "accepted": 0,
           "texts": 1,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-20": {
+          "follows": 8,
+          "accepted": 1,
+          "texts": 0,
           "chats": 0,
           "flagged": 0
         }
@@ -621,7 +700,9 @@
           "name": "Hargy Randhawa",
           "followed": "2026-10-15",
           "accepted": "2026-10-19",
-          "texts": [],
+          "texts": [
+            "2026-10-20"
+          ],
           "chat": false,
           "chatDate": null
         },
@@ -696,6 +777,24 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "jaspreet.singh.547",
+          "name": "Jaspreet Singh",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "caprabjeet.singh",
+          "name": "Prabjeet Singh",
+          "followed": "2026-10-20",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -753,6 +852,13 @@
           "follows": 2,
           "accepted": 1,
           "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-20": {
+          "follows": 2,
+          "accepted": 0,
+          "texts": 1,
           "chats": 0,
           "flagged": 0
         }
