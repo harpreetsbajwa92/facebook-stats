@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T13:41:08-04:00",
+  "updated": "2026-10-22T09:54:55-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -625,6 +625,69 @@
           "handle": "sanju.sachdeva.942",
           "name": "Jashandeep Singh Sachdeva",
           "followed": "2026-10-21",
+          "accepted": "2026-10-21",
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "harmanpreetsingh.malhi",
+          "name": "Harmanpreet Singh Malhi",
+          "followed": "2026-10-22",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "jeet.singh.886720",
+          "name": "Harvinder Singh",
+          "followed": "2026-10-22",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "harsimran.anand.10",
+          "name": "Harsimran Singh Anand",
+          "followed": "2026-10-22",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "jpsingh88",
+          "name": "Jaspreet Singh",
+          "followed": "2026-10-22",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "shivamsharma0805",
+          "name": "Shivam Sharma",
+          "followed": "2026-10-22",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "sahibdeep08",
+          "name": "Sahibdeep Singh",
+          "followed": "2026-10-22",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "joban99",
+          "name": "Joban Singh",
+          "followed": "2026-10-22",
           "accepted": null,
           "texts": [],
           "chat": false,
@@ -705,8 +768,15 @@
         },
         "2026-10-21": {
           "follows": 8,
-          "accepted": 0,
+          "accepted": 1,
           "texts": 2,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-22": {
+          "follows": 7,
+          "accepted": 0,
+          "texts": 0,
           "chats": 0,
           "flagged": 0
         }
@@ -891,6 +961,24 @@
           "handle": "jagbir.sidhu.71",
           "name": "Jag Sidhu",
           "followed": "2026-10-21",
+          "accepted": "2026-10-21",
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "ravinder.joga",
+          "name": "Ravinder Joga Chahal",
+          "followed": "2026-10-22",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "jatinderjeet.bassi",
+          "name": "Jatinderjeet Bassi",
+          "followed": "2026-10-22",
           "accepted": null,
           "texts": [],
           "chat": false,
@@ -963,6 +1051,13 @@
           "flagged": 0
         },
         "2026-10-21": {
+          "follows": 2,
+          "accepted": 1,
+          "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-22": {
           "follows": 2,
           "accepted": 0,
           "texts": 0,
