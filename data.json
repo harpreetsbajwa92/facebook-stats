@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T09:54:55-04:00",
+  "updated": "2026-10-22T11:40:07-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -679,7 +679,7 @@
           "handle": "sahibdeep08",
           "name": "Sahibdeep Singh",
           "followed": "2026-10-22",
-          "accepted": null,
+          "accepted": "2026-10-22",
           "texts": [],
           "chat": false,
           "chatDate": null
@@ -687,6 +687,15 @@
         {
           "handle": "joban99",
           "name": "Joban Singh",
+          "followed": "2026-10-22",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "imanpreets09",
+          "name": "Manpreet Singh",
           "followed": "2026-10-22",
           "accepted": null,
           "texts": [],
@@ -774,8 +783,8 @@
           "flagged": 0
         },
         "2026-10-22": {
-          "follows": 7,
-          "accepted": 0,
+          "follows": 8,
+          "accepted": 1,
           "texts": 0,
           "chats": 0,
           "flagged": 0
