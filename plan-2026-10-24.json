@@ -1,0 +1,34 @@
+{
+ "inbox": [
+  {
+   "t": "09:12",
+   "done": true
+  },
+  {
+   "t": "11:10",
+   "done": false
+  },
+  {
+   "t": "15:10",
+   "done": false
+  },
+  {
+   "t": "17:09",
+   "done": false
+  },
+  {
+   "t": "18:25",
+   "done": false
+  },
+  {
+   "t": "19:51",
+   "done": false
+  }
+ ],
+ "adds": [
+  {
+   "t": "09:33",
+   "done": true
+  }
+ ]
+}
