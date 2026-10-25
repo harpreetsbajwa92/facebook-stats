@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25T09:55:41-04:00",
+  "updated": "2026-10-25T10:28:31-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -854,6 +854,24 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "rahul.joshi.165470",
+          "name": "Rahul Joshi",
+          "followed": "2026-10-25",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "vikramjeet19",
+          "name": "Vikramjeet Singh",
+          "followed": "2026-10-25",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [
@@ -957,7 +975,7 @@
           "flagged": 0
         },
         "2026-10-25": {
-          "follows": 0,
+          "follows": 2,
           "accepted": 2,
           "texts": 1,
           "chats": 0,
@@ -1213,6 +1231,15 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "100080024603279",
+          "name": "Khush Sidhu",
+          "followed": "2026-10-25",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -1309,7 +1336,7 @@
           "flagged": 0
         },
         "2026-10-25": {
-          "follows": 1,
+          "follows": 2,
           "accepted": 0,
           "texts": 0,
           "chats": 0,
