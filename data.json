@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25T10:28:31-04:00",
+  "updated": "2026-10-25T11:18:30-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -872,6 +872,33 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "loveraj.sidhu.31",
+          "name": "Loveraj Sidhu",
+          "followed": "2026-10-25",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "kabir.singh.543",
+          "name": "Kabir Singh",
+          "followed": "2026-10-25",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
+        },
+        {
+          "handle": "mihirjj",
+          "name": "Mihir Joshi",
+          "followed": "2026-10-25",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [
@@ -975,7 +1002,7 @@
           "flagged": 0
         },
         "2026-10-25": {
-          "follows": 2,
+          "follows": 5,
           "accepted": 2,
           "texts": 1,
           "chats": 0,
