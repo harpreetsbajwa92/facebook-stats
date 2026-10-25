@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25T09:31:59-04:00",
+  "updated": "2026-10-25T09:55:41-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -421,7 +421,7 @@
           "handle": "shubhneet.gulati",
           "name": "Shubhneet Gulati",
           "followed": "2026-10-19",
-          "accepted": null,
+          "accepted": "2026-10-25",
           "texts": [],
           "chat": false,
           "chatDate": null
@@ -457,7 +457,7 @@
           "handle": "varun.bhatia.359",
           "name": "Varun Bhatia",
           "followed": "2026-10-19",
-          "accepted": null,
+          "accepted": "2026-10-25",
           "texts": [],
           "chat": false,
           "chatDate": null
@@ -958,7 +958,7 @@
         },
         "2026-10-25": {
           "follows": 0,
-          "accepted": 0,
+          "accepted": 2,
           "texts": 1,
           "chats": 0,
           "flagged": 0
@@ -1204,6 +1204,15 @@
           "texts": [],
           "chat": false,
           "chatDate": null
+        },
+        {
+          "handle": "iqbalbheora",
+          "name": "Iqbal Singh",
+          "followed": "2026-10-25",
+          "accepted": null,
+          "texts": [],
+          "chat": false,
+          "chatDate": null
         }
       ],
       "prospects": [],
@@ -1294,6 +1303,13 @@
         },
         "2026-10-24": {
           "follows": 2,
+          "accepted": 0,
+          "texts": 0,
+          "chats": 0,
+          "flagged": 0
+        },
+        "2026-10-25": {
+          "follows": 1,
           "accepted": 0,
           "texts": 0,
           "chats": 0,
