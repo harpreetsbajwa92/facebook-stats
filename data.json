@@ -745,7 +745,9 @@
           "accepted": "2026-10-24",
           "texts": [],
           "chat": false,
-          "chatDate": null
+          "chatDate": null,
+          "removed": "2026-10-25",
+          "note": "Unfriended Oct 25 after failing pre-opener check. Never send an opener or any message."
         },
         {
           "handle": "musicaholicharry",
@@ -763,7 +765,9 @@
           "accepted": "2026-10-24",
           "texts": [],
           "chat": false,
-          "chatDate": null
+          "chatDate": null,
+          "removed": "2026-10-25",
+          "note": "Unfriended Oct 25 after failing pre-opener check. Never send an opener or any message."
         },
         {
           "handle": "bhatiaabhay",
