@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26T08:40:35-04:00",
+  "updated": "2026-10-26T09:48:02-04:00",
   "goals": {
     "regular": 8,
     "professionals": 2
@@ -244,7 +244,7 @@
           "handle": "amrit.maan.3939",
           "name": "Amrit Maan",
           "followed": "2026-10-16",
-          "accepted": null,
+          "accepted": "2026-10-26",
           "texts": [],
           "chat": false,
           "chatDate": null
@@ -423,7 +423,9 @@
           "name": "Shubhneet Gulati",
           "followed": "2026-10-19",
           "accepted": "2026-10-25",
-          "texts": [],
+          "texts": [
+            "2026-10-26"
+          ],
           "chat": false,
           "chatDate": null
         },
@@ -828,7 +830,7 @@
           "handle": "gpsinghnit",
           "name": "Gurpreet Singh",
           "followed": "2026-10-24",
-          "accepted": null,
+          "accepted": "2026-10-26",
           "texts": [],
           "chat": false,
           "chatDate": null
@@ -900,7 +902,7 @@
           "handle": "mihirjj",
           "name": "Mihir Joshi",
           "followed": "2026-10-25",
-          "accepted": null,
+          "accepted": "2026-10-26",
           "texts": [],
           "chat": false,
           "chatDate": null
@@ -1042,8 +1044,8 @@
         },
         "2026-10-26": {
           "follows": 0,
-          "accepted": 0,
-          "texts": 1,
+          "accepted": 3,
+          "texts": 2,
           "chats": 0,
           "flagged": 0
         }
